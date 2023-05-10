@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-9" id="map-section">
+        <div class="test" id="test">  
+            <img style="width: 1500px; "src="{{ url_for('static', filename='img/plane.svg') }}"/>
+            <svg id = "map-viewbox" viewBox="0 0 1500 1000">
+                {% for defect in defects %}
+                    <circle class="pkg-circle" cx="{{defect.coord.x}}" cy="{{defect.coord.y}}" r="15" fill="rebeccapurple"/>
+                {% endfor %}
+            </svg>
+        </div> 
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,168 @@
+/*At the moment I'm not using the official Boeing color pallette, I will change that in the future*/
+body, html {
+  /* margin-left:1%!important; */
+  margin-right:1%!important;
+  margin-bottom:1%!important;
+  /* margin-top:1%!important; */
+  background-color: #4F5D75!important;
+}
+
+.header{
+  color:white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.filter-bar{
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: 3px solid #5F7394;
+  padding: 9px 9px 9px 9px !important;
+}
+
+.search-header{
+  margin-top: 20px!important;
+  background-color: #5F7394;
+  border-radius: 10px;
+  height: 50px;
+}
+
+
+/* Search Result */
+.search-result{
+  margin-top: 20px;
+  background-color: #4F5D75;
+  border: 3px solid #5F7394;
+  border-radius: 10px;
+  height: 75vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.search-filter{
+  color: white;
+  padding: 10px 10px 10px 10px;
+  font-weight: bold;
+}
+
+.result{
+  margin-top: 5px!important;
+  color: white;
+  height: 30px;
+  border-bottom: 3px solid #5F7394;
+  overflow: hidden;
+}
+
+.dropdown-btn{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.pkg-link{
+  font-weight: bold;
+  
+  color: black;
+}
+.pkg-link:hover{
+  color: #2D3142;
+}
+
+/* Side Bar */
+.flex-shrink-0 {
+  width: 150px; 
+  border-top-right-radius: 25px; 
+  border-bottom-right-radius: 25px;
+}
+.sidebar-wrapper{
+  overflow: hidden;
+}
+.dropdown-toggle { outline: 0; }
+
+.btn-toggle, .sidebtn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+.btn-toggle:hover,
+.sidebtn-toggle:hover,
+.sidebtn-toggle:focus,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #9eb5db;
+}
+
+.btn-toggle::before, .sidebtn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"], .sidebtn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before, .sidebtn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.sidebtn-toggle[aria-expanded="true"]::before {
+  transform: rotate(180deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #9eb5db;
+}
+
+.scrollarea {
+  overflow-y: auto;
+}
+
+.btn-wrapper{
+  width: 100%;
+}
+
+.map-btn{
+  float: right;
+}
+/* Map */
+#map-section .map{
+  position: relative;
+}
+#map-section .map img{
+  position: absolute;
+}
+#map-section{
+  margin-top: 50px;
+  border:1px solid black;
+  transform: scale(1);
+  cursor: grab;
+  overflow: hidden;
+  width: 1500px;
+}
+
+#test {
+  position: relative;
+}
+
+#test svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pkg-circle:hover{
+  fill: black;
+}

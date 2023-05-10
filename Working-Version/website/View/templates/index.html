@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+<!--Put in base class, each page has a header at the top of the page-->
+<div class="row">
+    <div class="col-sm-auto">
+        <div class="header"><p>Search - Package</p></div>
+    </div>
+</div>
+<!---->
+
+<!--Filter bar-->
+<div class="row">
+    <div class="col filter-bar">
+
+        <!--For loop here for filters-->
+        {% for filter in filterList %}
+        <button type="button" style="background-color: #2D3142; border: 0px" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        {{ filter }}
+    </button>
+        {% endfor %}
+        <!---->
+
+        <!-- Button trigger modal -->
+        <button type="button" style="margin-left: 20px; background-color: #5F7394; border: 0px" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            + Add Filter
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Filters</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="/">
+                    <div class="modal-body">
+                    <!--Filter types here-->
+                        <p><input type="checkbox" name="filter-checkbox" value="Package ID" onclick="revealBox(this);"> Package ID</p>
+                        <p><input type="checkbox" name="filter-checkbox" value="Tag ID" onclick="revealBox(this);"> Tag ID</p>
+                        <p><input type="checkbox" name="filter-checkbox" value="Package Type" onclick="revealBox(this);"> Package Type</p>
+                        <p><input type="checkbox" name="filter-checkbox" value="Package Status" onclick="revealBox(this);"> Package Status</p>
+                        <p><input type="checkbox" name="filter-checkbox" value="Archive Date" onclick="revealBox(this);"> Archive Date</p>
+                        <p id="user-input"></p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" style="background-color: #5F7394;" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        <!---->
+        
+    </div>
+</div>
+<!---->
+
+<!--Search header-->
+<div class="row search-header">
+    <!--Probably do a for loop here at some point for the listing details-->
+    <div class="col search-filter">
+        <p>Package ID <i class="fa-sharp fa-solid fa-sort"></i></p>
+    </div>
+    <div class="col search-filter">
+        <p>Tag ID <i class="fa-sharp fa-solid fa-sort"></i></p>
+    </div>
+    <div class="col search-filter">
+        <p>Package Type <i class="fa-sharp fa-solid fa-sort"></i></p>
+    </div>
+    <div class="col search-filter">
+        <p>Package Status <i class="fa-sharp fa-solid fa-sort"></i></p>
+    </div>
+    <div class="col search-filter">
+        <p>Archive Date <i class="fa-sharp fa-solid fa-sort"></i></p>
+    </div>
+</div>
+<!---->
+
+<!--Search results-->
+<div class="row-sm-auto search-result">
+    <!--For loop here-->
+    {% for defect in defects %}
+    <div class="row result" id="result">
+            <div class="row view">
+                <div class="col-sm-auto drop-down">
+                    <button class="dropdown-btn" id="dropdown-btn"><i id='font-dropdown' style="color: #2D3142;" class="fa-sharp fa-solid fa-sort-up"></i></button>
+                </div>
+                <div class="col pkg-id">
+                    <p>{{ defect.pkgID }}</p>
+                </div>
+                <div class="col tag-id">
+                    <p>Tag ID</p>
+                </div>
+                <div class="col pkg-type">
+                    <p>{{ defect.type }}</p>
+                </div>
+                <div class="col pkg-status">
+                    <p>Status</p>
+                </div>
+                <div class="col pkg-date">
+                    <p>3/16/23</p>
+                </div>
+            </div>
+            <div class="row unview">
+                <div class="col">
+                    <p>Castle Package: <a class="pkg-link" href=#>{{ defect.castleLink }}</a></p>
+                    <p>CMES Tag: </p>
+                    <p>Package Description</p>
+                    <p>Jobs (this will list jobs connected to this package)</p>
+                </div>
+                <div class="col">
+                    <div class="btn-wrapper">
+                        <form method="POST" action="/">
+                        <button type="submit" style="background-color: #5F7394; outline: none;" class="btn btn-primary map-btn" name ="map-id" value="{{ defect.pkgID }}">View On Map</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <!---->
+    <div class="row result" id="result">
+        <div class="row view">
+            <div class="col-sm-auto drop-down">
+                <button class="dropdown-btn" id="dropdown-btn"><i id='font-dropdown' style="color: #2D3142;" class="fa-sharp fa-solid fa-sort-up"></i></button>
+            </div>
+            <div class="col pkg-id">
+                <p>000000000</p>
+            </div>
+            <div class="col pkg-aprvr">
+                <p>Name</p>
+            </div>
+            <div class="col pkg-type">
+                <p>Type</p>
+            </div>
+            <div class="col pkg-status">
+                <p>Status</p>
+            </div>
+            <div class="col pkg-date">
+                <p>3/16/23</p>
+            </div>
+        </div>
+        <div class="row unview">
+            <div class="col">
+                <p>Castle Package:</p>
+                <p>CMES Tag: </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!---->
+
+        
+    
+{% endblock %}
